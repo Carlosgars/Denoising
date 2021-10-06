@@ -1,0 +1,49 @@
+AUTOENCODERS
+-------------------------------------------------------------------------------------------
+version1
+Trained on Colab: 248-128-64, stride=2, latent dim = 3500, trained for 40k iterations together via GAN. (Gaussian noise applied varied from 0.05 to 0.12 as config on Colab)
+Image size = 32x32x3
+
+-------------------------------------------------------------------------------------------
+version2
+Version 1 model trained with our dataset for 50 iterations * 10 epochs * 64 batches * 2 steps on each model
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+DISCRIMINATORS
+-------------------------------------------------------------------------------------------
+disc_version1
+Trained on Colab: 128-128, stride=2, 2 epochs, batch_size = 32, lr = 0.001, Gaussian noise applied = 0.5 (high so it still has to learn when training locally). Loss fn = Binary Cross Entropy
+
+-------------------------------------------------------------------------------------------
+disc_version2
+Trained on Colab: 64-64, stride=2, 1 epoch, batch_size = 64, lr = 0.001, Gaussian noise applied = 0.5 (high so it still has to learn when training locally). Adding noise to the labels. 
+Loss fn = Wasserstein loss.
+This one is more likely to be fooled by the discriminator and achieve a 0.5 loss.
+
+-------------------------------------------------------------------------------------------
+disc_version3
+Trained on Colab: 128-128-128-128, stride=2, 1 epoch, batch_size = 64, lr = 0.001, Gaussian noise applied = 
+Loss fn = Binary cross entropy.
+
+-------------------------------------------------------------------------------------------
+disc_version4
+Trained on Colab: 256-256-256-256, stride=2, 3 epoch, batch_size = 64,32, lr = 0.001, Gaussian noise applied = 0.05 (pretty low), val_loss: 0.0853
+Loss fn = Binary cross entropy.
+
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+LOCAL RUNS
+-------------------------------------------------------------------------------------------
+ae_version5, disc_version5
+discriminator loss at step 4: 8.277798652648926
+adversarial loss at step 4: tf.Tensor(0.001303484, shape=(), dtype=float32)
+From version2, disc_version3 trained for 
+Dataset building loop = 50
+Batch = 128
+iterations = 10
+Epoch_disc=1
+Epoch_gen=1
